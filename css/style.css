@@ -1,0 +1,376 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Top Container */
+.top-container,
+.bottom-container {
+  width: 70%;
+  margin: 0 auto;
+  display: flex;
+}
+
+.left,
+.right {
+  width: 50%;
+  padding: 4em 0 .65em 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.row {
+  display: flex;
+  text-align: center;
+  gap: 1em;
+}
+
+.left-boxes,
+.right-boxes,
+.result-boxes {
+  background-color: rgb(250, 249, 234);
+    width: 4em;
+    height: 4em;
+    margin-top: .5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: inset -3px -3px 7px #79797949,
+    inset 3px 3px 5px rgba(189, 180, 180, 0.082);
+    border-radius: 15px;
+}
+
+.result-boxes {
+  margin-top: 1.65em;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.transition {
+  transform: perspective(900px) rotateX(60deg) scale(0.7);
+  transition: 0.5s ease all;
+}
+
+.transform {
+  transform: rotate(0deg) scale(1) translateY(10px);
+}
+
+/* Bottom Container */
+.bottom-container {
+  flex-direction: column;
+  align-items: center;
+}
+
+.buttons {
+  border: none;
+  background-color: #fdfdfd;
+  padding: .75em;
+  border-radius: 5px;
+  box-shadow: -3px -3px 7px #ffffff73, 3px 3px 5px rgba(94, 104, 121, 0.288);
+  margin: 3.45em 0.5em;
+}
+
+.reset {
+  margin-top: .35em;
+  background-color: darkred;
+  padding: .8em 2.2em;
+  color: white;
+  border: none;
+}
+
+.reset:hover {
+  opacity: 0.5;
+}
+
+/* Responsive */
+
+@media screen and (max-width: 1024px) {
+  .top-container,
+  .bottom-container {
+    width: 85%;
+  }
+}
+
+@media screen and (max-width: 786px) {
+  .top-container,
+  .bottom-container {
+    width: 100%; 
+  }
+
+  .left {
+    margin-left: -.65em;
+  }
+
+  .right {
+    margin-right: 1.5em;
+  }
+
+  .left-boxes,
+  .right-boxes,
+  .result-boxes {
+    width: 3.5em;
+    height: 3.5em;
+    padding: .8em;
+  }
+  
+  .right-boxes-row {
+    gap: .2em;
+  }
+
+  .left {
+   flex-basis: calc(70%);
+    margin-left: 5.25em;
+  }
+  .right {
+    flex-grow: 30%;
+  }
+
+  .buttons {
+  padding: .45em;
+  margin: 2.35em 0.15em;
+  }
+}
+
+@media screen and (max-width: 786px) {
+  .right-boxes-row {
+    flex-wrap: wrap;
+    height: 2em;
+    width: 6em;
+  }
+
+  body > div > ul > div.top-container > div.container.right > div:nth-child(1) {
+    margin-top: .8em;
+    margin-bottom: 2.9em ;
+  }
+
+  body > div > ul > div.top-container > div.container.right > div:nth-child(3) {
+    margin-top: 3em;
+    margin-bottom: 3em;;
+  }
+
+  body > div > ul > div.top-container > div.container.right > div:nth-child(5) {
+    margin-top: 3em;
+    margin-bottom: 2.9em;;
+  }
+
+
+  .left {
+    flex-basis: calc(90%);
+  }
+
+  .left-boxes,
+  .result-boxes {
+    width: 4.5em;
+    height: 4.5em;
+  }
+
+  .right-boxes {
+    width: 2em;
+    height: 2em;
+    margin-top: -.1em;
+  }
+
+  .responsive {
+    height: 1.6em;
+    position: absolute;
+  }
+
+  .buttons {
+    margin: 2.35em 0.5em;
+  }
+
+  .reset {
+    margin-top: 1em;
+  }
+}
+
+@media screen and (max-width: 574px) {
+  .left {
+    margin-right: -1.9em;
+    margin-left: 0.65em;
+    padding-top: 1.95em;
+  }
+
+  .right {
+    margin-right: -3.75em;
+    padding-top: 1.95em;
+  }
+
+  .right-boxes-row {
+    flex-wrap: wrap;
+    height: 2em;
+    width: 5em;
+  }
+
+  body > div > ul > div.top-container > div.container.right > div:nth-child(1) {
+    margin-top: .9em;
+    margin-bottom: 2.6em ;
+  }
+
+  body > div > ul > div.top-container > div.container.right > div:nth-child(3) {
+    margin-top: 2.75em;
+    margin-bottom: 2.5em;;
+  }
+
+  body > div > ul > div.top-container > div.container.right > div:nth-child(5) {
+    margin-top: 2.75em;
+    margin-bottom: 2.5em;;
+  }
+
+  .left-boxes,
+  .result-boxes {
+    width: 4.15em;
+    height: 4.15em;
+  }
+
+
+  .right-boxes {
+    width: 1.7em;
+    height: 1.7em;
+    margin-top: -.1em;
+  }
+
+  .responsive {
+    height: 1.35em;
+    position: absolute;
+  }
+  .buttons-container {
+    width: 22em;
+  }
+
+  .buttons {
+    padding: .3em;
+    margin: 2.35em -.25em;
+    }
+
+}
+
+/* ------------------------------------- BACKGROUND ANIMATION  ------------------------------*/
+
+.area{
+  background: rgb(250, 246, 35);  
+  background: -webkit-linear-gradient(to left, #8f94fb, #4e54c8);  
+  width: 100%;
+  height:100vh;
+}
+
+.animation{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.animation li{
+  position: absolute;
+  display: block;
+  list-style: none;
+  width: 20px;
+  height: 20px;
+  background: rgba(231, 11, 11, 0.555);
+  animation: animate 25s linear infinite;
+  bottom: -150px;
+  
+}
+
+.animation li:nth-child(1){
+  left: 25%;
+  width: 80px;
+  height: 80px;
+  animation-delay: 0s;
+}
+
+
+.animation li:nth-child(2){
+  left: 10%;
+  width: 20px;
+  height: 20px;
+  animation-delay: 2s;
+  animation-duration: 12s;
+}
+
+.animation li:nth-child(3){
+  left: 70%;
+  width: 20px;
+  height: 20px;
+  animation-delay: 4s;
+}
+
+.animation li:nth-child(4){
+  left: 40%;
+  width: 60px;
+  height: 60px;
+  animation-delay: 0s;
+  animation-duration: 18s;
+}
+
+.animation li:nth-child(5){
+  left: 65%;
+  width: 20px;
+  height: 20px;
+  animation-delay: 0s;
+}
+
+.animation li:nth-child(6){
+  left: 75%;
+  width: 110px;
+  height: 110px;
+  animation-delay: 3s;
+}
+
+.animation li:nth-child(7){
+  left: 35%;
+  width: 150px;
+  height: 150px;
+  animation-delay: 7s;
+}
+
+.animation li:nth-child(8){
+  left: 50%;
+  width: 25px;
+  height: 25px;
+  animation-delay: 15s;
+  animation-duration: 45s;
+}
+
+.animation li:nth-child(9){
+  left: 20%;
+  width: 15px;
+  height: 15px;
+  animation-delay: 2s;
+  animation-duration: 35s;
+}
+
+.animation li:nth-child(10){
+  left: 85%;
+  width: 150px;
+  height: 150px;
+  animation-delay: 0s;
+  animation-duration: 11s;
+}
+
+
+@keyframes animate {
+
+  0%{
+      transform: translateY(0) rotate(0deg);
+      opacity: 1;
+      border-radius: 0;
+  }
+
+  100%{
+      transform: translateY(-1000px) rotate(720deg);
+      opacity: 0;
+      border-radius: 50%;
+  }
+
+}
