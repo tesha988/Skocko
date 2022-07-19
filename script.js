@@ -2,12 +2,15 @@ let leftBoxes = document.querySelectorAll(".left-boxes");
 let rightBoxes = document.querySelectorAll(".right-boxes");
 let buttons = document.querySelectorAll(".buttons");
 let resultBoxes = document.querySelectorAll(".result-boxes");
-// let checkButton = document.querySelector(".check");
+
 let resetButton = document.querySelectorAll(".reset");
+let resetButtonModal = document.querySelectorAll(".reset-btn-modal");
 let isDifferent = true;
 
-const modalWrapper = document.querySelector(".modal-wrapper");
-const modal = document.querySelector(".modal");
+const popup = document.querySelector(".popup");
+const closePopup = document.querySelector(".close");
+const popupHeading = document.querySelector(".popup-heading");
+let confetti1 = document.querySelector("#my-canvas");
 
 const resultImages = [
   `<img src="./images/${Math.floor(Math.random() * 6)}.png">`,
@@ -103,14 +106,20 @@ buttons.forEach((e) => {
       if (count === 24) {
         checkForCommon(pressedButtons[5], resultImagesNew);
         rowCheck(count);
-        // modalWrapper.classList.add("show");
-        document
-          .querySelector(".result-images-container")
-          .classList.add("transition", "transform");
+
         // Showing result
+        popup.classList.add("popup-active");
+        popupHeading.textContent = "Better luck next time!";
         for (let i = 0; i < resultImages.length; i++) {
           resultBoxes[i].style.visibility = "visible";
         }
+
+        // closePopup.addEventListener("click", () => {
+        //   for (let i = 0; i < resultImages.length; i++) {
+        //     resultBoxes[i].style.visibility = "hidden";
+        //   }
+        //   popup.classList.remove("popup-active");
+        // });
       }
     }
   });
@@ -142,23 +151,33 @@ function checkForCommon(arr1, arr2) {
     }
   }
 }
-// Game reset
-resetButton.forEach((e) => {
-  e.addEventListener("click", function () {
-    // modalWrapper.classList.remove("show");
-    window.location.reload();
-  });
-});
+
 // Checking for Win condition
 
 function winCheck(equal) {
   if (equal === 4) {
     console.log("You won");
+
     // Showing result
+    popup.classList.add("popup-active");
+
+    var confettiSettings = { target: "my-canvas" };
+    var confetti = new ConfettiGenerator(confettiSettings);
+
+    confetti.render();
+
     for (let i = 0; i < resultImages.length; i++) {
       resultBoxes[i].style.visibility = "visible";
     }
-    isDifferent = false;
+
+    // closePopup.addEventListener("click", () => {
+    //   for (let i = 0; i < resultImages.length; i++) {
+    //     resultBoxes[i].style.visibility = "hidden";
+    //   }
+    //   popup.classList.remove("popup-active");
+
+    //   return confetti.clear();
+    // });
   }
 }
 
@@ -172,9 +191,18 @@ function rowCheck(count) {
   }
 
   for (let i = red + (count - 4); i < yellow + red + (count - 4); i++) {
-    rightBoxes[i].innerHTML = `<img src="./images/yellow.png" class="responsive">`;
+    rightBoxes[
+      i
+    ].innerHTML = `<img src="./images/yellow.png" class="responsive">`;
   }
 
   red = 0;
   yellow = 0;
 }
+
+// Game reset
+resetButton.forEach((e) => {
+  e.addEventListener("click", function () {
+    window.location.reload();
+  });
+});
