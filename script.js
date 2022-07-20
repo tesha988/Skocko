@@ -110,7 +110,9 @@ buttons.forEach((e) => {
 
         // Showing result
         popup.classList.add("popup-active");
-        popupHeading.textContent = "Better luck next time!";
+        if (isDifferent) {
+          popupHeading.textContent = "Better luck next time!";
+        }
         for (let i = 0; i < resultImages.length; i++) {
           resultBoxes[i].style.visibility = "visible";
         }
@@ -214,6 +216,8 @@ function winCheck(equal) {
 
       return confetti.clear();
     });
+
+    isDifferent = false;
   }
 }
 
