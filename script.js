@@ -20,10 +20,9 @@ const resultImages = [
 ];
 
 let pressedButtons = [[], [], [], [], [], []];
-let newPressed = [[], [], [], [], [], []];
+// let newPressed = [[], [], [], [], [], []];
 
 let count = 0;
-let index;
 
 // Hiding result
 for (let i = 0; i < resultImages.length; i++) {
@@ -127,36 +126,40 @@ buttons.forEach((e) => {
   });
 });
 
-leftBoxes.forEach((e, i) => {
-  e.addEventListener("click", () => {
-    count--;
-
-    if (i < 4) {
-      e.innerHTML = "";
-      pressedButtons[0].splice(i, 1);
-    }
-    if (i < 8) {
-      e.innerHTML = "";
-      pressedButtons[1].splice(i, 1);
-    }
-    if (i < 12) {
-      e.innerHTML = "";
-      pressedButtons[2].splice(i, 1);
-    }
-    if (i < 16) {
-      e.innerHTML = "";
-      pressedButtons[3].splice(i, 1);
-    }
-    if (i < 20) {
-      e.innerHTML = "";
-      pressedButtons[4].splice(i, 1);
-    }
-    if (i < 24) {
-      e.innerHTML = "";
-      pressedButtons[5].splice(i, 1);
-    }
-  });
-});
+// leftBoxes.forEach((e, i) => {
+//   e.addEventListener("click", () => {
+//     if (i < 4) {
+//       e.innerHTML = "";
+//       pressedButtons[0].splice(i, 1);
+//       count--;
+//     }
+//     if (i < 8) {
+//       e.innerHTML = "";
+//       pressedButtons[1].splice(i, 1);
+//       count--;
+//     }
+//     if (i < 12) {
+//       e.innerHTML = "";
+//       pressedButtons[2].splice(i, 1);
+//       count--;
+//     }
+//     if (i < 16) {
+//       e.innerHTML = "";
+//       pressedButtons[3].splice(i, 1);
+//       count--;
+//     }
+//     if (i < 20) {
+//       e.innerHTML = "";
+//       pressedButtons[4].splice(i, 1);
+//       count--;
+//     }
+//     if (i < 24) {
+//       e.innerHTML = "";
+//       pressedButtons[5].splice(i, 1);
+//       count--;
+//     }
+//   });
+// });
 
 // Function for checking if matches are on right or wrong places
 function checkForCommon(arr1, arr2) {
