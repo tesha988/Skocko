@@ -46,6 +46,7 @@
   box-shadow: inset -3px -3px 7px #79797949,
     inset 3px 3px 5px rgba(189, 180, 180, 0.082);
   border-radius: 15px;
+  z-index: 999;
 }
 
 .result-boxes {
@@ -63,6 +64,10 @@ img {
   align-items: center;
 }
 
+.buttons-container {
+  z-index: 1000;
+}
+
 .buttons {
   border: none;
   background-color: #fdfdfd;
@@ -78,11 +83,52 @@ img {
   padding: 0.8em 2.2em;
   color: white;
   border: none;
-  /* cursor: pointer; */
+  z-index: 1000;
 }
 
 .reset:hover {
   opacity: 0.5;
+}
+
+/* Modal open */
+
+.popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgb(250, 246, 35);
+  box-shadow: inset -3px -3px 7px #69676749,
+    inset 3px 3px 5px rgba(83, 75, 75, 0.082);
+  width: 500px;
+  height: 560px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  border-radius: 15px;
+  align-items: center;
+  text-align: center;
+  padding: 40px;
+  visibility: hidden;
+  z-index: 1001;
+}
+
+.popup-active {
+  visibility: visible;
+}
+
+.close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+/* Confetti */
+
+#my-canvas {
+  position: absolute;
 }
 
 /* Responsive */
@@ -132,46 +178,6 @@ img {
     padding: 0.45em;
     margin: 2.35em 0.15em;
   }
-}
-
-/* Modal open */
-
-.popup {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: rgb(250, 246, 35);
-  box-shadow: inset -3px -3px 7px #69676749,
-    inset 3px 3px 5px rgba(83, 75, 75, 0.082);
-  width: 500px;
-  height: 560px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  border-radius: 15px;
-  align-items: center;
-  text-align: center;
-  padding: 40px;
-  visibility: hidden;
-}
-
-.popup-active {
-  visibility: visible;
-}
-
-.close {
-  position: absolute;
-  top: 0;
-  right: 0;
-  padding: 10px 20px;
-  cursor: pointer;
-}
-
-/* Confetti */
-
-#my-canvas {
-  position: absolute;
 }
 
 @media screen and (max-width: 786px) {
@@ -265,10 +271,14 @@ img {
     margin-bottom: 2.5em;
   }
 
-  .left-boxes,
-  .result-boxes {
+  .left-boxes {
     width: 4.15em;
     height: 4.15em;
+  }
+
+  .result-boxes {
+    width: 3.15em;
+    height: 3.15em;
   }
 
   .right-boxes {
@@ -288,6 +298,10 @@ img {
   .buttons {
     padding: 0.3em;
     margin: 2.35em -0.25em 1.35em -0.25em;
+  }
+
+  .popup {
+    width: 19em;
   }
 }
 
