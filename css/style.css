@@ -5,7 +5,7 @@
   margin: 0;
   padding: 0;
   font-family: "Audiowide", cursive;
-  color: darkred;
+  color: rgb(250, 246, 35);
 }
 
 /* Top Container */
@@ -97,7 +97,7 @@ img {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: rgb(250, 246, 35);
+  background-color: rgb(151, 43, 43);
   box-shadow: inset -3px -3px 7px #69676749,
     inset 3px 3px 5px rgba(83, 75, 75, 0.082);
   width: 500px;
@@ -123,6 +123,10 @@ img {
   right: 0;
   padding: 10px 20px;
   cursor: pointer;
+}
+
+.reset-modal {
+  background-color: rgb(250, 246, 35);
 }
 
 /* Confetti */
